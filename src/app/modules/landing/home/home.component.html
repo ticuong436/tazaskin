@@ -1,0 +1,473 @@
+<div class="relative">
+    <mat-drawer-container class="example-container" autosize>
+        <mat-drawer #drawer class="example-sidenav" mode="over">
+            <div class="sm:hidden mobile-header" id="mobile-menu">
+                <button
+                    type="button"
+                    mat-button
+                    (click)="drawer.toggle()"
+                    class="inline-flex items-center justify-center border-none p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                    aria-controls="mobile-menu"
+                >
+                    <span class="sr-only">Close main menu</span>
+
+                    <img
+                        src="../../../../assets/images/homepage/icon/icon-close.svg"
+                    />
+                </button>
+                <div class="pt-2 pb-3 space-y-1 flex flex-col pb-3 px-4">
+                    <a
+                        routerLink="/"
+                        class="text-lg uppercase mt-4 text-black px-4 py-4 rounded-md text-sm font-medium cursor-pointer"
+                        aria-current="page"
+                        (click)="drawer.toggle()"
+                        >Trang Chủ</a
+                    >
+                    <a
+                        href="https://v1.timona.edu.vn/gioi-thieu.html"
+                        class="text-lg uppercase mt-4 text-black px-4 py-4 rounded-md text-sm font-medium cursor-pointer"
+                        aria-current="page"
+                        (click)="drawer.toggle()"
+                        >Giới Thiệu</a
+                    >
+
+                    <a
+                        href="https://v1.timona.edu.vn/khoa-hoc.html"
+                        class="text-lg uppercase mt-4 text-black px-4 py-4 rounded-md text-sm font-medium cursor-pointer"
+                        aria-current="page"
+                        (click)="drawer.toggle()"
+                        >Chuyên Ngành</a
+                    >
+
+                    <a
+                        href="https://v1.timona.edu.vn/hoc-vien.html"
+                        class="text-lg uppercase mt-4 text-black px-4 py-4 rounded-md text-sm font-medium cursor-pointer"
+                        aria-current="page"
+                        (click)="drawer.toggle()"
+                        >Học Viên</a
+                    >
+
+                    <a
+                        href="https://v1.timona.edu.vn/tin-tuc-su-kien.html"
+                        class="text-lg uppercase mt-4 text-black px-4 py-4 rounded-md text-sm font-medium cursor-pointer"
+                        aria-current="page"
+                        (click)="drawer.toggle()"
+                        >Tin Tức & sự kiện</a
+                    >
+
+                    <a
+                        href="https://v1.timona.edu.vn/lien-he.html"
+                        class="text-lg uppercase mt-4 text-black px-4 py-4 rounded-md text-sm font-medium cursor-pointer"
+                        aria-current="page"
+                        (click)="drawer.toggle()"
+                        >Liên hệ</a
+                    >
+
+                    <!-- <a routerLink="/gioi-thieu-hoc-vien" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Giới thiệu</a>
+               -->
+                    <!-- <mat-accordion *ngFor="let itemmenu of menu" >
+                <mat-expansion-panel class="" (opened)="panelOpenState = true"
+                                     (closed)="panelOpenState = false" >
+                  <mat-expansion-panel-header >
+                    <mat-panel-title>
+                      <div *ngIf="itemmenu.children.length > 0 || itemmenu.Baiviet.length > 0; else notparent">
+                        <a routerLink="/{{itemmenu.slug}}" class="text-lg uppercase text-white mt-2 lg:px-3 mb-0 lg:py-2 rounded-md text-sm font-medium" >{{itemmenu.title}}</a>
+    
+                      </div>
+                      <ng-template #notparent>
+                        <a routerLink="/{{itemmenu.slug}}" class="text-lg uppercase text-white mt-2 lg:px-3 mb-0 lg:py-2 rounded-md text-sm font-medium" (click)="drawer.toggle()">{{itemmenu.title}}</a>
+    
+                      </ng-template>
+                    </mat-panel-title>
+                    
+                  </mat-expansion-panel-header>
+                  <div *ngIf="itemmenu.children.length > 0">
+                    <div class="flex sflex-col" *ngFor="let item of itemmenu.children ">
+                      <a class="text-lg uppercase text-white mt-1 lg:px-3 lg:py-2 rounded-md text-sm font-medium font-serif" routerLink="/{{item.slug}}" (click)="drawer.toggle()">{{item.title}}</a>
+                       
+                    </div>
+                  </div>
+                  
+                  <div *ngIf="itemmenu.Baiviet.length > 0">
+                    <div class="flex flex-col" *ngFor="let item of itemmenu.Baiviet ">
+                      <a class="text-lg uppercase text-white mt-1 lg:px-3 lg:py-2 rounded-md text-sm font-medium font-serif" routerLink="/khoa-hoc/{{item.id}}" (click)="drawer.toggle()">{{item.title}}</a>
+                       
+                    </div>
+                  </div>
+                </mat-expansion-panel>
+              </mat-accordion> -->
+                </div>
+            </div>
+        </mat-drawer>
+
+        <div class="example-sidenav-content flex flex-col relative">
+            <header id="header" class="lg:mb-0">
+                <nav
+                    class="flex items-center lg:flex-col lg:justify-between w-full bg-white fixed z-20"
+                >
+                    <div class="w-full" style="border-top: 5px solid #0071bb">
+                        <div
+                            class="lg:flex hidden items-center justify-center w-full lg:max-w-7xl lg:mx-auto lg:px-8"
+                            style="
+                                background-color: #0071bb;
+                                margin-top: -1px;
+                                clip-path: polygon(
+                                    0 0,
+                                    100% 0,
+                                    97% 100%,
+                                    3% 100%
+                                );
+                            "
+                        >
+                            <div>
+                                <p class="text-white text-sm">
+                                    08:00 - 19:00, Thứ 2 - CN (kể cả ngày lễ,
+                                    Tết)
+                                </p>
+                            </div>
+                            <div>
+                                <p class="text-white uppercase text-lg mx-7">
+                                    phòng khám chuyên khoa da liễu, thẩm mỹ công
+                                    nghệ cao
+                                </p>
+                            </div>
+                            <div>
+                                <p class="text-white text-sm">
+                                    Hotline: 1900 2664
+                                </p>
+                            </div>
+                        </div>
+                        <div
+                            class="flex items-center lg:justify-center bg-white w-full py-4 relative"
+                        >
+                            <div class="lg:hidden">
+                                <button
+                                    type="button"
+                                    mat-button
+                                    (click)="drawer.toggle()"
+                                    class="inline-flex items-center justify-center p-2 rounded-md text-blue-700 hover:text-white hover:bg-black focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                                    aria-controls="mobile-menu"
+                                >
+                                    <span class="sr-only">Open main menu</span>
+                                    <!--
+                  Icon when menu is closed.
+      
+                  Heroicon name: outline/menu
+      
+                  Menu open: "hidden", Menu closed: "block"
+                -->
+                                    <svg
+                                        class="hiddenh-6 w-6"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            fill="#fafafa"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M4 6h16M4 12h16M4 18h16"
+                                        />
+                                    </svg>
+                                    <!--
+                  Icon when menu is open.
+      
+                  Heroicon name: outline/x
+      
+                  Menu open: "block", Menu closed: "hidden"
+                -->
+                                    <svg
+                                        class="hidden h-6 w-6"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        aria-hidden="true"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M6 18L18 6M6 6l12 12"
+                                        />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div
+                                class="w-16 h-16 mr-3 lg:relative absolute top-0 left-1/2 lg:left-0"
+                                style="transform: translateX(-50%)"
+                            >
+                                <img
+                                    src="../../../../../assets/images/homepage/taza-skin-clinic-logo.svg"
+                                />
+                            </div>
+                            <ul
+                                class="lg:flex hidden items-center justify-center"
+                            >
+                                <li
+                                    class="mx-3 cursos-pointer"
+                                    *ngFor="let item of menu"
+                                >
+                                    <div
+                                        *ngIf="
+                                            item.children.length > 0 ||
+                                                item.Baiviet.length > 0;
+                                            else notchild
+                                        "
+                                    >
+                                        <div class="dropdown static">
+                                            <div>
+                                                <button
+                                                    class="dropdown-toggle border-none cusor-pointer"
+                                                    type="button"
+                                                    id="dropdownMenuButton1"
+                                                    data-bs-toggle="dropdown"
+                                                    aria-expanded="false"
+                                                    (mouseenter)="toggleMenu()"
+                                                >
+                                                    <a
+                                                        routerLink="home/{{
+                                                            item.slug
+                                                        }}"
+                                                        class="text-2xl"
+                                                    >
+                                                        {{ item.title }}
+                                                    </a>
+                                                </button>
+                                            </div>
+                                            <div
+                                                class="dropdown-menu min-w-max absolute bg-white left-1/2 z-50 float-left py-2 list-none text-left rounded-lg shadow-lg m-0 bg-clip-padding border border-gray-500 h-auto"
+                                                (mouseleave)="toggleMenu()"
+                                                [ngClass]="{ hidden: isShow }"
+                                                style="
+                                                    width: 95vw;
+                                                    transform: translateX(-50%);
+                                                "
+                                            >
+                                                <div
+                                                    class="lg:max-w-7xl lg:mx-auto lg:px-8"
+                                                >
+                                                    <div
+                                                        class="grid lg:grid-cols-4 gird-cols-1 gap-5 lg:mx-0 mx-7"
+                                                    >
+                                                        <div
+                                                            class="w-full h-full"
+                                                            *ngFor="
+                                                                let child of item.children
+                                                            "
+                                                        >
+                                                            <div
+                                                                class="relative pb-2 mb-3"
+                                                            >
+                                                                <p
+                                                                    class="text-xl font-bold"
+                                                                >
+                                                                    Điều trị da
+                                                                    chuyên sâu
+                                                                </p>
+                                                                <div
+                                                                    class="absolute w-full h-px bottom-0 left-0 bg-blue-400"
+                                                                ></div>
+                                                            </div>
+                                                            <ul class="ml-3">
+                                                                <li
+                                                                    class="py-2 cursos-pointer"
+                                                                    *ngFor="
+                                                                        let baiviet of child.Baiviet
+                                                                    "
+                                                                >
+                                                                    <a
+                                                                        class="text-lg cursor-pointer p-2 rounded-lg hover:bg-blue-400 hover:text-white"
+                                                                        >{{
+                                                                            baiviet.title
+                                                                        }}</a
+                                                                    >
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <!-- <div class="w-full h-full">
+                                                <div class="relative pb-2 mb-3">
+                                                    <p class="text-xl font-bold">Trẻ hóa da công nghệ cao</p>
+                                                    <div
+                                                        class="absolute w-full h-px bottom-0 left-0 bg-blue-400"
+                                                    ></div>
+                                                </div>
+                                                <ul class="ml-3">
+                                                    <li class="py-2 cursos-pointer"><a class="text-lg cursor-pointer p-2 rounded-lg hover:bg-blue-400 hover:text-white">Công nghệ PRP 4.0</a></li>
+                                                    <li class="py-2 cursos-pointer"><a class="text-lg cursor-pointer p-2 rounded-lg hover:bg-blue-400 hover:text-white">Cấy Nano DNA cá hồi</a></li>
+                                                    <li class="py-2 cursos-pointer"><a class="text-lg cursor-pointer p-2 rounded-lg hover:bg-blue-400 hover:text-white">Căng chỉ Collagen 4D V-Lift</a></li>
+                                                    <li class="py-2 cursos-pointer"><a class="text-lg cursor-pointer p-2 rounded-lg hover:bg-blue-400 hover:text-white">Công nghệ New Ultherapy</a></li>
+                                                    <li class="py-2 cursos-pointer"><a class="text-lg cursor-pointer p-2 rounded-lg hover:bg-blue-400 hover:text-white">Công nghệ Magic Face</a></li>
+                                                    <li class="py-2 cursos-pointer"><a class="text-lg cursor-pointer p-2 rounded-lg hover:bg-blue-400 hover:text-white">Liệu pháp Meso Therapy</a></li>
+
+
+                                                </ul>
+                                            </div>
+                                            <div class="w-full h-full">
+                                                <div class="relative pb-2 mb-3">
+                                                    <p class="text-xl font-bold">Giảm béo không phẩu thuật</p>
+                                                    <div
+                                                        class="absolute w-full h-px bottom-0 left-0 bg-blue-400"
+                                                    ></div>
+                                                </div>
+                                                
+                                                    
+                                                <ul class="ml-3">
+                                                    <li class="py-2 cursos-pointer"><a class="text-lg cursor-pointer p-2 rounded-lg hover:bg-blue-400 hover:text-white">Hủy mỡ Premium Defat</a></li>
+                                                    <li class="py-2 cursos-pointer"><a class="text-lg cursor-pointer p-2 rounded-lg hover:bg-blue-400 hover:text-white">Hủy mỡ Defat Sline</a></li>
+
+
+                                                </ul>
+                                            </div>
+                                            <div class="w-full h-full">
+                                                <div class="relative pb-2 mb-3">
+                                                    <p class="text-xl font-bold">Tắm trắng - triệt lông</p>
+                                                    <div
+                                                        class="absolute w-full h-px bottom-0 left-0 bg-blue-400"
+                                                    ></div>
+                                                </div>
+                                                <ul class="ml-3">
+                                                    <li class="py-2 cursos-pointer"><a class="text-lg cursor-pointer p-2 rounded-lg hover:bg-blue-400 hover:text-white">Tắm trắng tinh chất vàng nano 24k</a></li>
+                                                    <li class="py-2 cursos-pointer"><a class="text-lg cursor-pointer p-2 rounded-lg hover:bg-blue-400 hover:text-white">Tắm trắng sữa non Collagen</a></li>
+                                                    <li class="py-2 cursos-pointer"><a class="text-lg cursor-pointer p-2 rounded-lg hover:bg-blue-400 hover:text-white">Hấp trắng mặt Baby Face</a></li>
+                                                    <li class="py-2 cursos-pointer"><a class="text-lg cursor-pointer p-2 rounded-lg hover:bg-blue-400 hover:text-white">Triệt lông vĩnh viễn</a></li>
+
+
+                                                </ul>
+                                                <div class="flex justify-between items-center">
+                                                    <img src="" alt="" />
+                                                </div>
+                                            </div> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <ng-template #notchild>
+                                        <a class="text-2xl" href="#">{{item.title}}</a>
+                                    </ng-template>
+                                </li>
+
+                                <!-- <li class="mx-3 cursos-pointer">
+                                    <a class="text-2xl" href="#">Giới Thiệu</a>
+                                </li>
+                               
+                                <li class="mx-3 cursos-pointer">
+                                    <a class="text-2xl" href="#">Tin Tức</a>
+                                </li>
+                                <li class="mx-3 cursos-pointer">
+                                    <a class="text-2xl" href="#">Khuyến Mãi</a>
+                                </li>
+                                <li class="mx-3 cursos-pointer">
+                                    <a class="text-2xl" href="#">Tip Làm Đẹp</a>
+                                </li>
+                                <li class="mx-3 cursos-pointer">
+                                    <a class="text-2xl" href="#">Chi Nhánh</a>
+                                </li> -->
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <div
+                    class="absolute inset-y-0 left-0 z-10 flex items-center md:hidden"
+                >
+                    <!-- Mobile menu button-->
+                    <button
+                        type="button"
+                        mat-button
+                        (click)="drawer.toggle()"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                        aria-controls="mobile-menu"
+                    >
+                        <span class="sr-only">Open main menu</span>
+                        <!--
+                          Icon when menu is closed.
+              
+                          Heroicon name: outline/menu
+              
+                          Menu open: "hidden", Menu closed: "block"
+                        -->
+                        <svg
+                            class="hiddenh-6 w-6"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            aria-hidden="true"
+                        >
+                            <path
+                                fill="#fafafa"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"
+                            />
+                        </svg>
+                        <!--
+                          Icon when menu is open.
+              
+                          Heroicon name: outline/x
+              
+                          Menu open: "block", Menu closed: "hidden"
+                        -->
+                        <svg
+                            class="hidden h-6 w-6"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            aria-hidden="true"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"
+                            />
+                        </svg>
+                    </button>
+                </div>
+            </header>
+            <router-outlet></router-outlet>
+            <app-footer></app-footer>
+        </div>
+    </mat-drawer-container>
+    <div
+        class="fixed top-1/2 right-0 w-32 h-52 z-20 opacity-70 hidden lg:block"
+        style="transform: translateY(-50%)"
+    >
+        <div class="h-1/4 w-full">
+            <a
+                href="#"
+                class="text-white bg-blue-400 w-full py-4 block border-2 border-white text-center"
+                >Facebook</a
+            >
+        </div>
+        <div class="h-1/4 w-full flex items-center justify-center">
+            <a
+                href="#"
+                class="text-white bg-blue-400 w-full py-4 block border-2 border-white text-center"
+                >Dặt lịch</a
+            >
+        </div>
+        <div class="h-1/4 w-full flex items-center justify-center">
+            <a
+                href="#"
+                class="text-white bg-blue-400 w-full py-4 block border-2 border-white text-center"
+                >Tư Vấn</a
+            >
+        </div>
+        <div class="h-1/4 w-full flex items-center justify-center">
+            <a
+                href="#"
+                class="text-white bg-blue-400 w-full py-4 block border-2 border-white text-center"
+                >1900.2664</a
+            >
+        </div>
+    </div>
+</div>
+
+<!-- <app-header></app-header> -->

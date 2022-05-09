@@ -1,0 +1,28 @@
+/* ----------------------------------------------------------------------------------------------------- */
+/*  @ Import/write your custom styles here.
+/*  @ Styles from this file will override 'vendors.scss' and Fuse's base styles.
+/* ----------------------------------------------------------------------------------------------------- */
+@import "~swiper/css";
+@import "~swiper/css/pagination";
+@import "~swiper/css/navigation";
+
+.swiper-pagination-bullet-active{
+	background: blue !important;
+    width: 0.95rem !important;
+	height: 0.95rem !important;
+	
+}
+.swiper-pagination-bullet{
+	width: 0.75rem;
+	height: 0.75rem;
+	border: 1px solid #ddd;
+	background: #ddd;
+	opacity: 1;
+    transform: scale(1);
+}
+// .swiper-button-prev:after{
+//     content:"\f359";
+// }
+// .swiper-button-next:after{
+//     content:"\f359";
+// }
