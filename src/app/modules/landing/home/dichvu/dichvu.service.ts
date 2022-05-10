@@ -6,7 +6,7 @@ import { DichVu } from './dichvu.types';
   providedIn: 'root'
 })
 export class DichvuService {
-  private urlApi = 'https://v2api.timona.edu.vn/baiviet'
+  private urlApi = 'http://localhost:3000/baiviet'
   private _dichvu: BehaviorSubject<any | null> = new BehaviorSubject(null);
   // _dichvu$: BehaviorSubject<any> = new BehaviorSubject<any>(null);
   private _dichvus: BehaviorSubject<DichVu[] | null> = new BehaviorSubject(null);
@@ -30,9 +30,9 @@ export class DichvuService {
   );
 
   }
-  getDichvuChitiet(slug: string): Observable<DichVu>
+  getDichvuChitiet(id: any): Observable<DichVu>
     {
-      return this.http.get<DichVu>(`https://v2api.timona.edu.vn/baiviet/slug/${slug}`).pipe(
+      return this.http.get<DichVu>(this.urlApi+`/${id}`).pipe(
         map((dichvu) => {
 
             // Update the dichvu
@@ -47,7 +47,7 @@ export class DichvuService {
 
             if ( !dichvu )
             {
-                return throwError('Could not found dichvu with id of ' + slug + '!');
+                return throwError('Could not found dichvu with id of ' + id + '!');
             }
 
             return of(dichvu);

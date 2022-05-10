@@ -15,53 +15,15 @@
                         src="../../../../assets/images/homepage/icon/icon-close.svg"
                     />
                 </button>
-                <div class="pt-2 pb-3 space-y-1 flex flex-col pb-3 px-4">
+                <div class="pt-2 pb-3 space-y-1 flex flex-col pb-3 px-4" *ngFor="let item of menu">
                     <a
-                        routerLink="/"
+                        routerLink="/{{item.slug}}"
                         class="text-lg uppercase mt-4 text-black px-4 py-4 rounded-md text-sm font-medium cursor-pointer"
                         aria-current="page"
                         (click)="drawer.toggle()"
-                        >Trang Chủ</a
+                        >{{item.title}}</a
                     >
-                    <a
-                        href="https://v1.timona.edu.vn/gioi-thieu.html"
-                        class="text-lg uppercase mt-4 text-black px-4 py-4 rounded-md text-sm font-medium cursor-pointer"
-                        aria-current="page"
-                        (click)="drawer.toggle()"
-                        >Giới Thiệu</a
-                    >
-
-                    <a
-                        href="https://v1.timona.edu.vn/khoa-hoc.html"
-                        class="text-lg uppercase mt-4 text-black px-4 py-4 rounded-md text-sm font-medium cursor-pointer"
-                        aria-current="page"
-                        (click)="drawer.toggle()"
-                        >Chuyên Ngành</a
-                    >
-
-                    <a
-                        href="https://v1.timona.edu.vn/hoc-vien.html"
-                        class="text-lg uppercase mt-4 text-black px-4 py-4 rounded-md text-sm font-medium cursor-pointer"
-                        aria-current="page"
-                        (click)="drawer.toggle()"
-                        >Học Viên</a
-                    >
-
-                    <a
-                        href="https://v1.timona.edu.vn/tin-tuc-su-kien.html"
-                        class="text-lg uppercase mt-4 text-black px-4 py-4 rounded-md text-sm font-medium cursor-pointer"
-                        aria-current="page"
-                        (click)="drawer.toggle()"
-                        >Tin Tức & sự kiện</a
-                    >
-
-                    <a
-                        href="https://v1.timona.edu.vn/lien-he.html"
-                        class="text-lg uppercase mt-4 text-black px-4 py-4 rounded-md text-sm font-medium cursor-pointer"
-                        aria-current="page"
-                        (click)="drawer.toggle()"
-                        >Liên hệ</a
-                    >
+                   
 
                     <!-- <a routerLink="/gioi-thieu-hoc-vien" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">Giới thiệu</a>
                -->
@@ -200,9 +162,11 @@
                                 class="w-16 h-16 mr-3 lg:relative absolute top-0 left-1/2 lg:left-0"
                                 style="transform: translateX(-50%)"
                             >
-                                <img
-                                    src="../../../../../assets/images/homepage/taza-skin-clinic-logo.svg"
-                                />
+                                <a routerLink="/home">
+                                    <img
+                                        src="../../../../../assets/images/homepage/taza-skin-clinic-logo.svg"
+                                    />
+                                </a>
                             </div>
                             <ul
                                 class="lg:flex hidden items-center justify-center"
@@ -213,8 +177,8 @@
                                 >
                                     <div
                                         *ngIf="
-                                            item.children.length > 0 ||
-                                                item.Baiviet.length > 0;
+                                            item.children?.length > 0 ||
+                                                item.Baiviet?.length > 0;
                                             else notchild
                                         "
                                     >
@@ -229,7 +193,7 @@
                                                     (mouseenter)="toggleMenu()"
                                                 >
                                                     <a
-                                                        routerLink="home/{{
+                                                        routerLink="/home/{{
                                                             item.slug
                                                         }}"
                                                         class="text-2xl"
@@ -281,6 +245,9 @@
                                                                 >
                                                                     <a
                                                                         class="text-lg cursor-pointer p-2 rounded-lg hover:bg-blue-400 hover:text-white"
+                                                                        routerLink="/home/dich-vu/{{
+                                                                            baiviet.id
+                                                                        }}"
                                                                         >{{
                                                                             baiviet.title
                                                                         }}</a
@@ -347,7 +314,9 @@
                                         </div>
                                     </div>
                                     <ng-template #notchild>
-                                        <a class="text-2xl" href="#">{{item.title}}</a>
+                                        <a class="text-2xl" href="#">{{
+                                            item.title
+                                        }}</a>
                                     </ng-template>
                                 </li>
 

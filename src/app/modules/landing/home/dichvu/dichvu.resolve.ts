@@ -61,10 +61,10 @@ export class DichvuDetailResolver implements Resolve<any>
      */
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<DichVu>
     {
-        const slug = route.paramMap.get('slug');
-        console.log(slug);
+        const id = route.paramMap.get('id');
+        console.log(id);
         
-        return this._Dichvu.getDichvuChitiet(slug)
+        return this._Dichvu.getDichvuChitiet(id)
                    .pipe(
                        // Error here means the requested contact is not available
                        catchError((error) => {

@@ -19,11 +19,11 @@ const routes: Routes = [
                 },
             },
             {
-                path: ':slug',
+                path: ':id',
                 component: DichvuDetailComponent,
-                // resolve: {
-                //     detail: DichvuDetailResolver,
-                // },
+                resolve: {
+                    detail: DichvuDetailResolver,
+                },
             },
         ],
     },

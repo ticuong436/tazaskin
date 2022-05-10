@@ -182,14 +182,14 @@
                 type="submit"
                 (click)="onSubmit()"
                 [disabled]="!userProfile.valid"
-                class="btn btn-success bg-indigo-900"
+                class="px-3 py-1 bg-green-600 rounded-lg text-white"
             >
                 Submit
             </button>
 
             <button
                 type="update"
-                class="btn btn-primary mx-10"
+                class="px-3 py-1 bg-indigo-600 rounded-lg mx-10 text-white"
                 (click)="updateBaiviet()"
             >
                 Update
@@ -197,7 +197,7 @@
 
             <button
                 type="delete"
-                class="btn btn-danger"
+                class="px-3 py-1 bg-red-600 rounded-lg text-white"
                 (click)="deleteBaiviet()"
             >
                 Delete

@@ -180,7 +180,7 @@ export class BaivietComponent implements OnInit {
             .pipe(
                 map(
                     (arr) =>
-                        arr && arr.length && arr.filter((r) => r.slug == '')
+                        arr && arr.length && arr.filter((r) => r.parentid != '')
                 )
             )
             .subscribe((result) => (this.menu = result));

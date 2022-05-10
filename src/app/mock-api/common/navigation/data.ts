@@ -17,6 +17,13 @@ export const defaultNavigation: FuseNavigationItem[] = [
         link : '/example/menu'
     },
     {
+        id   : 'theme',
+        title: 'Theme',
+        type : 'basic',
+        icon : 'heroicons_outline:chart-pie',
+        link : '/example/theme'
+    },
+    {
         id   : 'dichvu',
         title: 'Dịch vụ',
         type : 'basic',
