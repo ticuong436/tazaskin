@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { MenuComponent } from './menu/menu.component';
 import { ThemeComponent } from './theme/theme.component';
+import { HuongdanCauhoiComponent } from './huongdan-cauhoi/huongdan-cauhoi.component';
 
 const exampleRoutes: Route[] = [
     {
@@ -17,6 +18,8 @@ const exampleRoutes: Route[] = [
             {path:'baiviet', component: BaivietComponent},
             {path:'menu', component: MenuComponent},
             {path:'theme', component: ThemeComponent},
+            {path:'huongdan', component: HuongdanCauhoiComponent},
+
 
 
         ]
@@ -29,7 +32,8 @@ const exampleRoutes: Route[] = [
         ExampleComponent,
         BaivietComponent,
         MenuComponent,
-        ThemeComponent
+        ThemeComponent,
+        HuongdanCauhoiComponent
     ],
     imports     : [
         RouterModule.forChild(exampleRoutes),

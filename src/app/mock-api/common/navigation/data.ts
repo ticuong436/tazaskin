@@ -7,28 +7,28 @@ export const defaultNavigation: FuseNavigationItem[] = [
         title: 'Example',
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
-        link : '/example'
+        link : '/admin'
     },
     {
         id   : 'menu',
         title: 'Menu',
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
-        link : '/example/menu'
+        link : '/admin/menu'
     },
     {
         id   : 'theme',
         title: 'Theme',
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
-        link : '/example/theme'
+        link : '/admin/theme'
     },
     {
         id   : 'dichvu',
         title: 'Dịch vụ',
         type : 'basic',
         icon : 'heroicons_outline:chart-pie',
-        link : '/example/baiviet'
+        link : '/admin/baiviet'
     }
 ];
 export const compactNavigation: FuseNavigationItem[] = [
