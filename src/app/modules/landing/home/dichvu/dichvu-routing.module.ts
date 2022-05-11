@@ -1,11 +1,10 @@
-import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DichvuListComponent } from './dichvu-list/dichvu-list.component';
 import { DichvuComponent } from './dichvu.component';
 import { DichvuDetailComponent } from './dichvu-detail/dichvu-detail.component';
 import { DichvuDetailResolver, DichvuResolver } from './dichvu.resolve';
 
-const routes: Routes = [
+export const dichvuRoutes: Routes = [
     {
         path: '',
         component: DichvuComponent,
@@ -29,8 +28,4 @@ const routes: Routes = [
     },
 ];
 
-@NgModule({
-    imports: [RouterModule.forChild(routes)],
-    exports: [RouterModule],
-})
-export class DichvuRoutingModule {}
+

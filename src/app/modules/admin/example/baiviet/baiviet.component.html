@@ -46,9 +46,11 @@
                     Nội dung
                 </label>
                 <ckeditor
-                    [editor]="Editor"
-                    #editer
-                    [config]="config"
+                [editor]="Editor"
+                (ready)="onReady($event)"
+                [(ngModel)]="html"
+                #editer
+                [config]="config"
                     [formControlName]="'content'"
                 ></ckeditor>
             </div>

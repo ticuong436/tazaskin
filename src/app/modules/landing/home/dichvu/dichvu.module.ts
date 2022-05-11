@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { DichvuRoutingModule } from './dichvu-routing.module';
+import { dichvuRoutes } from './dichvu-routing.module';
 import { DichvuComponent } from './dichvu.component';
 import { DichvuListComponent } from './dichvu-list/dichvu-list.component';
 import { DichvuDetailComponent } from './dichvu-detail/dichvu-detail.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { DichvuDetailComponent } from './dichvu-detail/dichvu-detail.component';
   ],
   imports: [
     CommonModule,
-    DichvuRoutingModule
+    RouterModule.forChild(dichvuRoutes),
+
   ]
 })
 export class DichvuModule { }

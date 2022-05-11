@@ -5,6 +5,7 @@ import * as customBuild from '../../../ckCustomBuild/build/ckEditor';
 import { FileUploadService } from '../../services/file-upload.service';
 import { BaivietService } from './baiviet.service';
 import { map } from 'rxjs';
+import { MyUploadAdapter } from '../MyUploadAdapter';
 
 @Component({
     selector: 'app-baiviet',
@@ -13,7 +14,7 @@ import { map } from 'rxjs';
 })
 export class BaivietComponent implements OnInit {
     fileUploads?: any[];
-
+    public html: string;
     selectedFiles?: FileList;
     currentFileUpload?: FileUpload;
     percentage = 0;
@@ -27,9 +28,9 @@ export class BaivietComponent implements OnInit {
     idSelect;
     thumb;
     courses: any;
-    public Editor = customBuild;
+    public Editor : customBuild;
     BACK_END_MAPPING_URL_FOR_SAVE_IMG: string =
-        'gs://timona-9c284.appspot.com/uploads';
+        'gs://timona-9c284.appspot.com/uploads-tazaskin';
 
     public config = {
         htmlSupport: {
@@ -41,31 +42,8 @@ export class BaivietComponent implements OnInit {
                 },
             ],
         },
-        ckfinder: {
-            options: {
-                resourceType: 'Images',
-            },
-            uploadUrl: this.BACK_END_MAPPING_URL_FOR_SAVE_IMG,
-            withCredentials: false,
-
-            headers: {
-                'X-CSRF-TOKEN': 'CSRF-Token',
-                Authorization: 'Bearer AIzaSyCQ58kPYsxlE328vWL7BlkxfkHhJwLSYb8',
-            },
-        },
-        simpleUpload: {
-            // The URL that the images are uploaded to.
-            uploadUrl: this.BACK_END_MAPPING_URL_FOR_SAVE_IMG,
-
-            // Enable the XMLHttpRequest.withCredentials property.
-            withCredentials: true,
-
-            // Headers sent along with the XMLHttpRequest to the upload server.
-            headers: {
-                'X-CSRF-TOKEN': 'CSRF-Token',
-                Authorization: 'Bearer AIzaSyCQ58kPYsxlE328vWL7BlkxfkHhJwLSYb8',
-            },
-        },
+       
+        
     };
 
     public componentEvents: string[] = [];
@@ -75,7 +53,8 @@ export class BaivietComponent implements OnInit {
             this.selectedFiles = undefined;
             if (file) {
                 this.currentFileUpload = new FileUpload(file);
-
+                console.log(this.currentFileUpload);
+                
                 this.uploadService
                     .pushFileToStorage(this.currentFileUpload)
                     .subscribe(
@@ -96,7 +75,10 @@ export class BaivietComponent implements OnInit {
         private baivietService: BaivietService,
         private fb: FormBuilder,
         private uploadService: FileUploadService
-    ) {}
+    ) {
+        this.html = "";
+        this.Editor = customBuild
+    }
     onSubmit() {
         this.baivietService.postCourse(this.userProfile.value).subscribe();
         alert('Tạo nội dung thành công');
@@ -158,6 +140,21 @@ export class BaivietComponent implements OnInit {
 
         this.uploadService.deleteFile(fileUpload);
     }
+    public onReady(editor) {
+        editor.plugins.get("FileRepository").createUploadAdapter = (loader) => {
+            console.log(loader);
+            let inforImage = this.uploadService._thumb$.subscribe()
+          return new MyUploadAdapter(loader,this.uploadService, inforImage);
+        };
+        console.log(editor);
+        
+        editor.ui
+          .getEditableElement()
+          .parentElement.insertBefore(
+            editor.ui.view.toolbar.element,
+            editor.ui.getEditableElement()
+          );
+      }
 
     ngOnInit(): void {
         this.userProfile = this.fb.group({
@@ -208,6 +205,8 @@ export class BaivietComponent implements OnInit {
             });
         this.uploadService._thumb$.subscribe((res) => {
             if (res) {
+                console.log(res);
+                
                 this.userProfile.get('thumbimage').setValue(res);
             }
         });

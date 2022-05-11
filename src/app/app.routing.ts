@@ -113,7 +113,7 @@ export const appRoutes: Route[] = [
 
     // Admin routes
     {
-        path: '',
+        path: 'admin',
         // canActivate: [AuthGuard],
         // canActivateChild: [AuthGuard],
         component: LayoutComponent,
@@ -122,7 +122,7 @@ export const appRoutes: Route[] = [
         },
         children: [
             {
-                path: 'admin',
+                path: '',
                 loadChildren: () =>
                     import('app/modules/admin/example/example.module').then(
                         (m) => m.ExampleModule
