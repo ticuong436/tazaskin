@@ -18,6 +18,7 @@ export class BaivietComponent implements OnInit {
     selectedFiles?: FileList;
     currentFileUpload?: FileUpload;
     percentage = 0;
+    inforImage:any
     themes: any[];
     theme: any;
     message: 'chon theme';
@@ -143,10 +144,15 @@ export class BaivietComponent implements OnInit {
     public onReady(editor) {
         editor.plugins.get("FileRepository").createUploadAdapter = (loader) => {
             console.log(loader);
-            let inforImage = this.uploadService._thumb$.subscribe()
-          return new MyUploadAdapter(loader,this.uploadService, inforImage);
+            this.uploadService._thumb$.subscribe(res=> {
+                this.inforImage = res
+                console.log(res);
+                
+            })
+           
+           
+          return new MyUploadAdapter(loader,this.uploadService,  this.inforImage);
         };
-        console.log(editor);
         
         editor.ui
           .getEditableElement()
@@ -168,7 +174,6 @@ export class BaivietComponent implements OnInit {
         this.baivietService.getTheme().subscribe();
 
         this.baivietService.themes$.subscribe((themes) => {
-            console.log(themes);
 
             return (this.themes = themes);
         });
@@ -205,8 +210,6 @@ export class BaivietComponent implements OnInit {
             });
         this.uploadService._thumb$.subscribe((res) => {
             if (res) {
-                console.log(res);
-                
                 this.userProfile.get('thumbimage').setValue(res);
             }
         });

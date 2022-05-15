@@ -19,7 +19,7 @@ export class MyUploadAdapter {
         this.uploadService = uploadService;
         this.inforImage = inforImage;
         // change "environment.BASE_URL" key and API path
-        this.url = `http://localhost:3000/image`;
+        this.url = `http://localhost:3000`;
 
         // change "token" value with your token
     }
